@@ -1,0 +1,68 @@
+* {
+    padding: 0;
+    margin: 0;
+    transition: all .2s ease;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+body {
+    background-position:bottom left;
+    background-attachment: fixed;
+    font-family: 'Nunito', sans-serif;
+    background-image: url("../img/what-the-hex-dark.png");
+    color: white
+}
+
+header {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 100vw;
+    flex-wrap: wrap;
+    height:20vh
+}
+
+header h1 {
+    flex: 0 1 100%;
+    font-size:4vw;
+    text-align:center;
+    padding:2vw;
+}
+
+header ul {
+    display: flex;
+    flex-direction: row;
+}
+
+header a {
+    flex: 0 1 100%;
+    text-align:center;
+    margin:1vw
+}
+
+.contain {
+    height:80vh;
+    box-sizing: border-box;
+    padding: 5vw;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.intro {
+    width: 70%;
+}
