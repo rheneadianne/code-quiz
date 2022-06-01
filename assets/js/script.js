@@ -1,9 +1,9 @@
 // variables
-const question = $(".question-wrap")
+const questionWrap = $(".question-wrap")
 const start = $(".start")
 const intro = $(".intro")
-const questionTitle = $(".question")
-const choices = $(".choices")
+const questionTitle = document.querySelector(".question")
+const choices = document.querySelector(".choices ul")
 const initialTimer = document.querySelector(".initialTimer")
 const timer = document.querySelector(".timer")
 
@@ -39,9 +39,28 @@ const countdown = () => {
 }
     firstCountdown()
     intro.delay(4000).fadeOut(); // hide intro
-    question.delay(4700).slideDown() //show question and timer
+    questionWrap.delay(4700).slideDown() //show question and timer
     countdown()
+    question()
 });
 
+// questions as objects -- proof of concept
+const questionList = [
+    {
+        question: "Commonly used Data types do NOT include:",
+        choices: ["strings", "booleans", "alerts", "numbers"],
+        answer: "alerts"
+    }
+]
 
+const question = () => {
+    let questionNumber = 0
+    let currentQuestion = questionList[questionNumber] // gets question object from array
+    questionTitle.textContent = currentQuestion.question // updates question title
+    for (i = 0; i < currentQuestion.choices.length; i++) {
+        const makeChoices = document.createElement("li")
+        makeChoices.textContent = currentQuestion.choices[i]
+        choices.appendChild(makeChoices)
+    }
+}
 

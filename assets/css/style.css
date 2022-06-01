@@ -110,6 +110,7 @@ header button:hover, .contain button:hover {
     text-transform: lowercase;
 }
 
-.answer {
-    cursor: default;
+.initialTimer {
+    font-size: larger;
+    font-weight: bold;
 }
