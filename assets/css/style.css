@@ -61,7 +61,7 @@ header ul {
     flex-direction: row;
 }
 
-header button, .contain button, .quizTakerSubmit{
+header button, .contain button, .quizTakerSubmit, .clearStorage{
     flex: 0 1 100%;
     text-align:center;
     margin:1vw;
@@ -72,7 +72,7 @@ header button, .contain button, .quizTakerSubmit{
     background-color: var(--main-accent);
 }
 
-header button:hover, .contain button:hover {
+header button:hover, .contain button:hover, .clearStorage {
     background-color: var(--sub-accent);
 }
 
@@ -88,7 +88,8 @@ header button:hover, .contain button:hover {
 
 .intro {
     width: 70%;
-    position: absolute;
+    position: relative;
+
 }
 
 .question-wrap {
@@ -153,4 +154,23 @@ header button:hover, .contain button:hover {
 
 .tryAgain:hover {
     color: var(--sub-accent);
+}
+
+.scores {
+    list-style: none;
+    position: absolute;
+    z-index: 100;
+    width: 70vw;
+    height: auto;
+    padding:2vw;
+    background-color: var(--choice-color);
+    border-radius: 5px;
+    line-height: 1.5;
+    display: none;
+    min-height: 50vh;
+}
+
+.scores h3 {
+    letter-spacing: 0.1vw;
+    margin: 1vw;
 }

@@ -1,4 +1,4 @@
-// TIMERS
+// Timers
 const initialTimer = document.querySelector(".initialTimer")
 const timer = document.querySelector(".timeLeft")
 let timeLeft = 124; // 2 mins to complete + 4 seconds to account for delay
@@ -26,7 +26,7 @@ const quizCountdown = () => { // quiz timer function
     }
 }
 
-// QUESTIONS
+// Questions
 const questionWrap = $(".question-wrap")
 const start = $(".start")
 const intro = $(".intro")
@@ -86,6 +86,7 @@ const outro = document.querySelector(".finalMessage")
 const tryAgain = document.querySelector(".tryAgain")
 const quizTaker = $(".quizTaker")
 let takerSubmit = $(".quizTakerSubmit")
+let scoreList = JSON.parse(window.localStorage.getItem("scoreList")) || [];
 
 const endQuiz = () => {
     let highestStreak = Math.max(...questionStreakArray) // calculates highest streak
@@ -114,12 +115,32 @@ const endQuiz = () => {
             score: finalScore
         }
         saveScore = () => {
-            let scoreList = JSON.parse(window.localStorage.getItem("scoreList")) || [];
             scoreList.push(addScore);
             scoreList.sort((a,b) => b.score - a.score)
             window.localStorage.setItem("scoreList", JSON.stringify(scoreList));
         }
         saveScore()
-        localStorage.setItem("scoreList", JSON.stringify(scoreListString));
     })
 }
+
+//Get Scores from Local storage and add to code
+const printedScoreList = document.querySelector(".scores")
+const printScoreList = () => {
+    for (i = 0; i < scoreList.length; i++) { // creates list elements based on score list
+        const makeScores = document.createElement("li");
+        makeScores.setAttribute("class", "scoreItem");
+        makeScores.textContent = scoreList[i].name + ": " + scoreList[i].score;
+        printedScoreList.appendChild(makeScores);
+    }
+}
+
+printScoreList()
+
+$(".viewScores").click(function(){
+    $(".scores").fadeToggle()
+})
+
+$(".clearStorage").click(function(){
+    localStorage.clear(); // clear local storage
+    printedScoreList.innerHTML = "" // clears on page
+})
