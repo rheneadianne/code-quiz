@@ -1,3 +1,12 @@
+:root {
+    --main-accent:#dfa132;
+    --sub-accent: #ffee00;
+    --text-color: white;
+    --text-color-hover:black;
+    --choice-color:#303030;
+    --background-img:url("../img/what-the-hex-dark.png");
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -22,8 +31,13 @@ body {
     background-position:bottom left;
     background-attachment: fixed;
     font-family: 'Nunito', sans-serif;
-    background-image: url("../img/what-the-hex-dark.png");
-    color: white;
+    background-image: var(--background-img);
+    color: var(--text-color);
+}
+
+::selection {
+    background-color: var(--sub-accent);
+    color: var(--text-color-hover);
 }
 
 header {
@@ -55,11 +69,11 @@ header button, .contain button{
     padding:.5vw;
     font-family: 'Nunito', sans-serif;
     border-radius: 5px;
-    background-color: #dfa132;
+    background-color: var(--main-accent);
 }
 
 header button:hover, .contain button:hover {
-    background-color: #ffee00;
+    background-color: var(--sub-accent);
 }
 
 .contain {
@@ -87,30 +101,38 @@ header button:hover, .contain button:hover {
     padding:1vw;
 }
 
-.choices ul {
+.choices ul, .choices {
     padding: 1vw;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.choices li, .answer {
+.choices li, .ifWrong {
     padding: 1vw;
     margin: .5vw;
     width: 60vw;
     text-align: center;
-    background-color: #303030;
-    color: white;
+    color: var(--text-color);
     cursor: pointer;
 }
 
+.choices li {
+    background-color: var(--choice-color);
+}
+
 .choices li:hover {
-    color:black;
-    background-color: #dfa132;
-    text-transform: lowercase;
+    color:var(--text-color-hover);
+    background-color: var(--main-accent);
 }
 
 .initialTimer {
     font-size: larger;
     font-weight: bold;
+}
+
+.ifWrong {
+    background-color: none;
+    color:red;
+    font-size: larger;
 }
