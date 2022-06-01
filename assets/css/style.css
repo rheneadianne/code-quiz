@@ -74,11 +74,11 @@ header button:hover, .contain button:hover {
 
 .intro {
     width: 70%;
+    position: absolute;
 }
 
 .question-wrap {
     padding:1vw;
-    width: 100%;
     display: none;
 }
 
@@ -94,10 +94,10 @@ header button:hover, .contain button:hover {
     align-items: center;
 }
 
-.choices li {
+.choices li, .answer {
     padding: 1vw;
     margin: .5vw;
-    width: 80%;
+    width: 60vw;
     text-align: center;
     background-color: #303030;
     color: white;
@@ -108,4 +108,8 @@ header button:hover, .contain button:hover {
     color:black;
     background-color: #dfa132;
     text-transform: lowercase;
+}
+
+.answer {
+    cursor: default;
 }

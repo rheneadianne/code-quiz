@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web API Code Quiz</title>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
@@ -26,22 +27,26 @@
             <p>Test your knowledge! Here are some questions to see how your skills fair. <br />
                 Answer them as fast as possible and aim for the highest score. <br />
                 Beware! If you make any mistakes I'll take a chunk from your timer.</p>
-            <button>Start Quiz</button>
+            <button class="start">Start Quiz</button>
+            <div class="initialTimer"></div>
         </article>
         <article class="question-wrap">
             <div class="timer">
                 <p>Time Remaining: 100</p>
             </div>
-            <div class="question"></div>
-            <h2>pwease :(</h2>
+            <div class="question">
+                <h2>pwease :(</h2>
+            </div>
             <div class="choices">
                 <ul>
                     <li>a</li>
                     <li>b</li>
                     <li>c</li>
                     <li>d</li>
+                    <li class="answer"></li>
                 </ul>
             </div>
+
         </article>
     </section>
     <script src="./assets/js/script.js"></script>
