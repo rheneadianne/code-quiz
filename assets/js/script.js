@@ -66,7 +66,6 @@ const question = () => {
             ifWrong.textContent = "Try Again!"
             questionStreak = 0 // resets streak if wrong
             questionStreakArray.push(questionStreak); //adds to streak array
-            console.log(questionStreakArray)
         } else {
             questionStreak++ // adds to streak if right
             questionNumber++ // next question in array
@@ -83,12 +82,37 @@ const question = () => {
 }
 
 // Ending Quiz and Calculating HighScore
-let finalScore = questionStreak * timer.textContent
+const highestStreakText = document.querySelector(".highestStreakText")
+const highestStreakNum = document.querySelector(".highestStreak")
+const finalScoreText = document.querySelector(".finalScoreText")
+const finalScoreNum = document.querySelector(".finalScore")
+const tryAgain = document.querySelector(".tryAgain")
 
 const endQuiz = () => {
     clearInterval(countdownInterval) // stop timer
-    console.log(timer.textContent)
     questionTitle.textContent = "" // clears last question title
     choices.innerHTML = "" // clears last question
+    let highestStreak = Math.max(...questionStreakArray) // calculates highest streak
+    let finalScore = (timeLeft + 1) * highestStreak // calculates final score
+
+    if (highestStreak !== 0 && timeLeft === !0) {
+        highestStreakText.textContent = "Congratulations! Your highest streak was ";
+        highestStreakNum.textContent = highestStreak;
+        finalScoreText.textContent = ". That means your final score is "
+        finalScoreNum.textContent = finalScore;
+        tryAgain.innerHTML = "Want to see if you can get a higher score? Click here!";
+    } else if (timeLeft === 0) {
+        highestStreakText.textContent = "Your highest streak was ";
+        highestStreakNum.textContent = highestStreak;
+        finalScoreText.textContent = " but you ran out of time. That means your final score is "
+        finalScoreNum.textContent = finalScore;
+        tryAgain.innerHTML = "Don't give up! If you want to try again, click here!";
+    } else {
+        highestStreakText.textContent = "Your highest streak was ";
+        highestStreakNum.textContent = highestStreak;
+        finalScoreText.textContent = ". That means your final score is "
+        finalScoreNum.textContent = finalScore;
+        tryAgain.textContent = "Want to try again? Click here!";
+    }
 }
 

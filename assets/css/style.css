@@ -136,3 +136,11 @@ header button:hover, .contain button:hover {
     color:red;
     font-size: larger;
 }
+
+.tryAgain {
+    color:var(--main-accent)
+}
+
+.tryAgain:hover {
+    color: var(--sub-accent);
+}
