@@ -85,8 +85,6 @@ const question = () => {
 const outro = document.querySelector(".finalMessage")
 const tryAgain = document.querySelector(".tryAgain")
 const quizTaker = $(".quizTaker")
-let scoreList = []
-
 let takerSubmit = $(".quizTakerSubmit")
 
 const endQuiz = () => {
@@ -107,14 +105,21 @@ const endQuiz = () => {
     }
 
     quizTaker.show() //shows quiz taker input field
-    
+
+// Saves Score to Local Storage
     takerSubmit.click(function(){ 
         let takerInput = document.querySelector(".quizTakerInput").value.trim()
         let addScore = { // adds score once name is submited
             name: takerInput,
             score: finalScore
         }
-        scoreList.push(addScore);
-        console.log(scoreList)
+        saveScore = () => {
+            let scoreList = JSON.parse(window.localStorage.getItem("scoreList")) || [];
+            scoreList.push(addScore);
+            scoreList.sort((a,b) => b.score - a.score)
+            window.localStorage.setItem("scoreList", JSON.stringify(scoreList));
+        }
+        saveScore()
+        localStorage.setItem("scoreList", JSON.stringify(scoreListString));
     })
 }
