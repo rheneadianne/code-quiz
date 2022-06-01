@@ -82,37 +82,39 @@ const question = () => {
 }
 
 // Ending Quiz and Calculating HighScore
-const highestStreakText = document.querySelector(".highestStreakText")
-const highestStreakNum = document.querySelector(".highestStreak")
-const finalScoreText = document.querySelector(".finalScoreText")
-const finalScoreNum = document.querySelector(".finalScore")
+const outro = document.querySelector(".finalMessage")
 const tryAgain = document.querySelector(".tryAgain")
+const quizTaker = $(".quizTaker")
+let scoreList = []
+
+let takerSubmit = $(".quizTakerSubmit")
 
 const endQuiz = () => {
+    let highestStreak = Math.max(...questionStreakArray) // calculates highest streak
+    let finalScore = (timeLeft + 1) * highestStreak // calculates final score
     clearInterval(countdownInterval) // stop timer
     questionTitle.textContent = "" // clears last question title
     choices.innerHTML = "" // clears last question
-    let highestStreak = Math.max(...questionStreakArray) // calculates highest streak
-    let finalScore = (timeLeft + 1) * highestStreak // calculates final score
-
-    if (highestStreak !== 0 && timeLeft === !0) {
-        highestStreakText.textContent = "Congratulations! Your highest streak was ";
-        highestStreakNum.textContent = highestStreak;
-        finalScoreText.textContent = ". That means your final score is "
-        finalScoreNum.textContent = finalScore;
+    if (highestStreak !== 0 && timeLeft !== 0) { //various messages depending on streak and time
+        outro.textContent = `Congratulations! Your highest streak was ${highestStreak}, which makes your final score ${finalScore}! Great job!`
         tryAgain.innerHTML = "Want to see if you can get a higher score? Click here!";
-    } else if (timeLeft === 0) {
-        highestStreakText.textContent = "Your highest streak was ";
-        highestStreakNum.textContent = highestStreak;
-        finalScoreText.textContent = " but you ran out of time. That means your final score is "
-        finalScoreNum.textContent = finalScore;
+    } else if (highestStreak !==0 && timeLeft === 0) {
+        outro.textContent = `Your highest streak was ${highestStreak} but you ran out of time. That means your final score is ${finalScore}.`
         tryAgain.innerHTML = "Don't give up! If you want to try again, click here!";
     } else {
-        highestStreakText.textContent = "Your highest streak was ";
-        highestStreakNum.textContent = highestStreak;
-        finalScoreText.textContent = ". That means your final score is "
-        finalScoreNum.textContent = finalScore;
+        outro.textContent = `Your highest streak was ${highestStreak} and you ran out of time. That means your final score is ${finalScore}.`
         tryAgain.textContent = "Want to try again? Click here!";
     }
-}
 
+    quizTaker.show() //shows quiz taker input field
+    
+    takerSubmit.click(function(){ 
+        let takerInput = document.querySelector(".quizTakerInput").value.trim()
+        let addScore = { // adds score once name is submited
+            name: takerInput,
+            score: finalScore
+        }
+        scoreList.push(addScore);
+        console.log(scoreList)
+    })
+}

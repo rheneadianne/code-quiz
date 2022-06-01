@@ -61,7 +61,7 @@ header ul {
     flex-direction: row;
 }
 
-header button, .contain button{
+header button, .contain button, .quizTakerSubmit{
     flex: 0 1 100%;
     text-align:center;
     margin:1vw;
@@ -108,7 +108,7 @@ header button:hover, .contain button:hover {
     align-items: center;
 }
 
-.choices li, .ifWrong {
+.choices li, .ifWrong, .quizTakerInput {
     padding: 1vw;
     margin: .5vw;
     width: 60vw;
@@ -117,13 +117,23 @@ header button:hover, .contain button:hover {
     cursor: pointer;
 }
 
-.choices li {
+.choices li, .quizTakerInput {
     background-color: var(--choice-color);
 }
 
 .choices li:hover {
     color:var(--text-color-hover);
     background-color: var(--main-accent);
+}
+
+.quizTaker {
+    display: none;
+    margin:2vw;
+}
+
+.quizTakerInput {
+    width: auto;
+    border-radius: 5px;
 }
 
 .initialTimer {
