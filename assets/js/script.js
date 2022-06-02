@@ -146,13 +146,13 @@ $(".clearStorage").click(function () {
 })
 
 // Light Mode - Dark Mode
+$(":root").toggleClass(window.localStorage.isLightmode)
 $(".lightDark").click(function () {
-    $(":root").toggleClass(window.localStorage.toggled)
-    if (window.localStorage.toggled !== "lightMode") { // adds to local storage
+    if (window.localStorage.isLightmode !== "lightMode") { // adds to local storage
         $(':root').toggleClass("lightMode", true);
-        window.localStorage.toggled = "lightMode";
+        window.localStorage.isLightmode = "lightMode";
     } else {
         $(':root').toggleClass("lightMode", false);
-        window.localStorage.toggled = "";
+        window.localStorage.isLightmode = "";
     }
 });
