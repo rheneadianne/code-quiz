@@ -14,5 +14,8 @@ https://rheneadianne.github.io/code-quiz/
 ## Resources
 Background images from https://www.toptal.com/designers/subtlepatterns/
 
+## Images
+![Gif of So You Think You Can Code](./assets/img/web-api-code-quiz.gif)
+
 ## Contribution
 Made with ❤️ by Rhenea 
