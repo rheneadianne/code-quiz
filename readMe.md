@@ -9,7 +9,7 @@ This quiz was designed to test your knowledge on front-end web development.
 - CSS
 
 ## Website
-https://rhenea-dianne.github.io/code-quiz/
+https://rheneadianne.github.io/code-quiz/
 
 ## Contribution
 Made with ❤️ by Rhenea 
