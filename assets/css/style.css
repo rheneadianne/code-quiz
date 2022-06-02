@@ -170,6 +170,10 @@ header button:hover, .contain button:hover, .clearStorage {
     border-radius: 5px;
 }
 
+.quizTaker p {
+    display: none;
+}
+
 /* Link to refresh page to try again */
 
 .tryAgain {

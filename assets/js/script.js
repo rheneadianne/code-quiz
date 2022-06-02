@@ -120,6 +120,8 @@ const endQuiz = () => {
             window.localStorage.setItem("scoreList", JSON.stringify(scoreList));
         }
         saveScore()
+        takerSubmit.attr("style","background-color: var(--sub-accent); color:var(--text-color-hover)")
+        $(".quizTaker p").show()
     })
 }
 
