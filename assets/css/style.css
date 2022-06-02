@@ -1,10 +1,19 @@
 :root {
-    --main-accent:#dfa132;
+    --main-accent:#cd8f1f;
     --sub-accent: #ffee00;
     --text-color: white;
     --text-color-hover:black;
     --choice-color:#303030;
     --background-img:url("../img/what-the-hex-dark.png");
+}
+
+:root.lightMode {
+    --main-accent:#16d1ef;
+    --sub-accent: #5ed8eb;
+    --text-color: black;
+    --text-color-hover:#237187;
+    --choice-color:#d9d9d9;
+    --background-img:url("../img/what-the-hex.png");
 }
 
 * {
@@ -70,10 +79,13 @@ header button, .contain button, .quizTakerSubmit, .clearStorage{
     font-family: 'Nunito', sans-serif;
     border-radius: 5px;
     background-color: var(--main-accent);
+    color:var(--text-color);
+    border:none
 }
 
 header button:hover, .contain button:hover, .clearStorage {
     background-color: var(--sub-accent);
+    color:var(--text-color-hover)
 }
 
 .contain {

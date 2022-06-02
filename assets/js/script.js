@@ -10,8 +10,8 @@ const firstCountdown = () => { // countdown to quiz
             initialTimer.innerHTML = initialTime;
             initialTime--;
         } else {
-        initialTimer.textContent = "GO!";
-        clearInterval(firstInterval)
+            initialTimer.textContent = "GO!";
+            clearInterval(firstInterval)
         }
     }, 1000);
 }
@@ -33,7 +33,7 @@ const intro = $(".intro")
 const questionTitle = document.querySelector(".question")
 const choices = document.querySelector(".choices ul")
 
-start.click(function() { // countdown for 4 seconds before quiz begins
+start.click(function () { // countdown for 4 seconds before quiz begins
     firstCountdown(); //counts down 4 seconds
     intro.delay(4000).fadeOut(); // hide intro
     questionWrap.delay(4700).slideDown(); //show question and timer
@@ -56,7 +56,7 @@ const question = () => {
         choices.appendChild(makeChoices);
     }
 
-    $(".choice").click(function(){
+    $(".choice").click(function () {
         let ifWrong = document.querySelector(".ifWrong p")
         if (this.textContent !== questionList[questionNumber].answer) {
             timeLeft -= 10 // penalty for wrong answer
@@ -72,11 +72,11 @@ const question = () => {
             questionStreakArray.push(questionStreak);
             choices.innerHTML = "" // clears last question
             ifWrong.textContent = "" //clears feedback
-                if (questionNumber === questionList.length) {
-                    return endQuiz()
-                } else {
-                    return question()
-                };
+            if (questionNumber === questionList.length) {
+                return endQuiz()
+            } else {
+                return question()
+            };
         }
     });
 }
@@ -97,7 +97,7 @@ const endQuiz = () => {
     if (highestStreak !== 0 && timeLeft !== 0) { //various messages depending on streak and time
         outro.textContent = `Congratulations! Your highest streak was ${highestStreak}, which makes your final score ${finalScore}! Great job!`
         tryAgain.innerHTML = "Want to see if you can get a higher score? Click here!";
-    } else if (highestStreak !==0 && timeLeft === 0) {
+    } else if (highestStreak !== 0 && timeLeft === 0) {
         outro.textContent = `Your highest streak was ${highestStreak} but you ran out of time. That means your final score is ${finalScore}.`
         tryAgain.innerHTML = "Don't give up! If you want to try again, click here!";
     } else {
@@ -107,8 +107,8 @@ const endQuiz = () => {
 
     quizTaker.show() //shows quiz taker input field
 
-// Saves Score to Local Storage
-    takerSubmit.click(function(){ 
+    // Saves Score to Local Storage
+    takerSubmit.click(function () {
         let takerInput = document.querySelector(".quizTakerInput").value.trim()
         let addScore = { // adds score once name is submited
             name: takerInput,
@@ -116,7 +116,7 @@ const endQuiz = () => {
         }
         saveScore = () => {
             scoreList.push(addScore);
-            scoreList.sort((a,b) => b.score - a.score)
+            scoreList.sort((a, b) => b.score - a.score)
             window.localStorage.setItem("scoreList", JSON.stringify(scoreList));
         }
         saveScore()
@@ -136,11 +136,23 @@ const printScoreList = () => {
 
 printScoreList()
 
-$(".viewScores").click(function(){
+$(".viewScores").click(function () {
     $(".scores").fadeToggle()
 })
 
-$(".clearStorage").click(function(){
+$(".clearStorage").click(function () {
     localStorage.clear(); // clear local storage
     printedScoreList.innerHTML = "" // clears on page
 })
+
+// Light Mode - Dark Mode
+$(".lightDark").click(function () {
+    $(":root").toggleClass(window.localStorage.toggled)
+    if (window.localStorage.toggled !== "lightMode") {
+        $(':root').toggleClass("lightMode", true);
+        window.localStorage.toggled = "lightMode";
+    } else {
+        $(':root').toggleClass("lightMode", false);
+        window.localStorage.toggled = "";
+    }
+});
