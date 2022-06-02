@@ -124,7 +124,8 @@ const endQuiz = () => {
 }
 
 //Get Scores from Local storage and add to code
-const printedScoreList = document.querySelector(".scores")
+const printedScoreList = document.querySelector(".scores ul")
+
 const printScoreList = () => {
     for (i = 0; i < scoreList.length; i++) { // creates list elements based on score list
         const makeScores = document.createElement("li");
