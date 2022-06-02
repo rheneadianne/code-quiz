@@ -1,3 +1,4 @@
+/* Selectors that affect general elements */
 :root {
     --main-accent:#cd8f1f;
     --sub-accent: #ffee00;
@@ -49,6 +50,8 @@ body {
     color: var(--text-color-hover);
 }
 
+/* Header */
+
 header {
     display: flex;
     align-content: center;
@@ -88,6 +91,7 @@ header button:hover, .contain button:hover, .clearStorage {
     color:var(--text-color-hover)
 }
 
+/* Main Container */
 .contain {
     height:80vh;
     box-sizing: border-box;
@@ -98,22 +102,31 @@ header button:hover, .contain button:hover, .clearStorage {
     align-items: center;
 }
 
+/* Intro */
 .intro {
     width: 70%;
     position: relative;
 
 }
 
+.initialTimer {
+    font-size: larger;
+    font-weight: bold;
+}
+
+/* Question Wrapper */
 .question-wrap {
     padding:1vw;
     display: none;
 }
 
+/* Quiz Countdown Timer */
 .timer {
     width: 100%;
     padding:1vw;
 }
 
+/* Quiz Choices */
 .choices ul, .choices {
     padding: 1vw;
     display: flex;
@@ -139,6 +152,14 @@ header button:hover, .contain button:hover, .clearStorage {
     background-color: var(--main-accent);
 }
 
+/* Feedback to prompt that answer was wrong */
+.ifWrong {
+    background-color: none;
+    color:red;
+    font-size: larger;
+}
+
+/* Input to add name for Final Score */
 .quizTaker {
     display: none;
     margin:2vw;
@@ -149,16 +170,7 @@ header button:hover, .contain button:hover, .clearStorage {
     border-radius: 5px;
 }
 
-.initialTimer {
-    font-size: larger;
-    font-weight: bold;
-}
-
-.ifWrong {
-    background-color: none;
-    color:red;
-    font-size: larger;
-}
+/* Link to refresh page to try again */
 
 .tryAgain {
     color:var(--main-accent)
@@ -168,6 +180,7 @@ header button:hover, .contain button:hover, .clearStorage {
     color: var(--sub-accent);
 }
 
+/* High Scores list */
 .scores {
     list-style: none;
     position: absolute;

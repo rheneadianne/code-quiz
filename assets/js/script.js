@@ -148,7 +148,7 @@ $(".clearStorage").click(function () {
 // Light Mode - Dark Mode
 $(".lightDark").click(function () {
     $(":root").toggleClass(window.localStorage.toggled)
-    if (window.localStorage.toggled !== "lightMode") {
+    if (window.localStorage.toggled !== "lightMode") { // adds to local storage
         $(':root').toggleClass("lightMode", true);
         window.localStorage.toggled = "lightMode";
     } else {
