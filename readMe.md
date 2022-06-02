@@ -11,5 +11,8 @@ This quiz was designed to test your knowledge on front-end web development.
 ## Website
 https://rheneadianne.github.io/code-quiz/
 
+## Resources
+Background images from https://www.toptal.com/designers/subtlepatterns/
+
 ## Contribution
 Made with ❤️ by Rhenea 
