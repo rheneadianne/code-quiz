@@ -137,9 +137,9 @@ const printScoreList = () => {
     }
 }
 
-printScoreList()
+printScoreList() // calls to print list
 
-$(".viewScores").click(function () {
+$(".viewScores").click(function () { // shows hidden highscores box
     $(".scores").fadeToggle()
 })
 
